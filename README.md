@@ -3,7 +3,7 @@ This repository contains the implementation of the paper [Contrastive Learning f
 
 [Thong Nguyen](https://nguyentthong.github.io/), [Luu Anh Tuan](https://tuanluu.github.io/) (NeurIPS 2021)
 
-![Teaser image]("CLNTM0/asset/teaser.jpg")
+
 In this work, we target the problem of capturing meaningful representations through modeling the relations among samples from a mathematical perspective and propose a novel contrastive objective to train the neural topic model, along with the optimization of the variational lower bound. In our contrastive learning framework, we introduce a novel sampling strategy that is motivated by human behavior when comparing numerous documents. Our results show that capturing mutual information between the prototype and its positive sample provides a strong foundation for constructing coherent topics, while differentiating the prototype from the negative samples plays a less fundamental role.
 
 ```
@@ -27,7 +27,7 @@ url={https://openreview.net/forum?id=NEgqO9yB7e}
 - pytorch
 - scipy
 
-具体可参考 requirements.txt 文件
+more in requirements.txt 
 
 
 ## How to Run
