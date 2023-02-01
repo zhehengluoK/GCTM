@@ -1,0 +1,1 @@
+python run_scholar.py data/20ng/processed/ data/20ng/graph -k 50 --seed 2048 -l 0.002 --epochs 200 --dev-folds 5 --dev-fold 4 --test-prefix test --device 0 --o ./outputs/scholar/20ng_50_2048_2_200 --model scholar

@@ -1,0 +1,1 @@
+python run_scholar.py data/imdb/processed/ data/imdb/graph -k 50 --seed 2022 -l 0.002 --epochs 200 --device 1 --dev-folds 3 --dev-fold 2 --test-prefix test --o ./outputs/scholar/imdb_50_2022_2_200 --model scholar

@@ -1,0 +1,1 @@
+python compute_npmi.py ./outputs/myModel/nips_50_4396_5_500_gcn/topics.txt ./data/nips/processed/train.npz ./data/nips/processed/train.vocab.json

@@ -1,0 +1,1 @@
+python compute_npmi.py ./outputs/scholar/ag_news_50_gcn/topics.txt ./data/ag_news/processed/train.npz ./data/ag_news/processed/train.vocab.json

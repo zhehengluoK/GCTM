@@ -1,0 +1,1 @@
+python run_scholar.py data/wiki/processed/ data/wiki/graph -k 50 -l 0.002 --alpha 1 --seed 42 --test-prefix test --device 1 --o ./outputs/scholar/wiki_50_gcn --epochs 400 --model GCNContrastiveScholar --batch-size 500 --dist 0

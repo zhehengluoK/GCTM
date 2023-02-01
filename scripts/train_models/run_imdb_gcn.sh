@@ -1,0 +1,1 @@
+python run_scholar.py data/imdb/processed/ data/imdb/graph -k 50 --seed 42 -l 0.002 --epochs 200 --device 3 --dev-folds 3 --dev-fold 2 --test-prefix test --o ./outputs/myModel/imdb_50_42_2_200_gcn --model GCNContrastiveScholar --dist 0

@@ -1,0 +1,1 @@
+python compute_npmi.py ./outputs/scholar/20ng_50_2048_2_400/topics.txt ./data/20ng/processed/train.npz ./data/20ng/processed/train.vocab.json

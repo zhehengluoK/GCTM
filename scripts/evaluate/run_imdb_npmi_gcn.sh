@@ -1,0 +1,1 @@
+python compute_npmi.py ./outputs/myModel/imdb_50_42_2_200_gcn/topics.txt ./data/imdb/processed/train.npz ./data/imdb/processed/train.vocab.json

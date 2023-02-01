@@ -1,0 +1,1 @@
+python run_scholar.py data/nips/processed/ data/nips/graph -k 50 --seed 4396 -l 0.005 --epochs 500 --device 3 --batch-size 500 --dev-folds 4 --dev-fold 3 --test-prefix test --o ./outputs/myModel/nips_50_4396_5_500_gcn --model GCNContrastiveScholar --dist 0
