@@ -108,7 +108,7 @@ class BuildGraph:
     def __init__(self, dataset, prefix, window_size=20, threshold_pos=0., threshold_neg=0.):
         """ prefix: str, option: train/test """
         processed_corpus_path = f"data/{dataset}/processed"
-        self.graph_path = f"data/{dataset}/graph"
+        self.graph_path = f"data/{dataset}/graph_{window_size}_{threshold_pos}"
         if not os.path.exists(self.graph_path):
             os.makedirs(self.graph_path)
 
@@ -196,19 +196,19 @@ class BuildGraph:
 
 
 def main():
-    dataset = sys.argv[1]
+    dataset, window_size, threshold = sys.argv[1], int(sys.argv[2]), float(sys.argv[3])
 
-    BuildGraph(dataset, 'train', window_size=20, threshold_pos=0, threshold_neg=0)  # 可调整此处的窗口大小和阈值
-    BuildGraph(dataset, 'test', window_size=20, threshold_pos=0, threshold_neg=0)
+    BuildGraph(dataset, 'train', window_size=window_size, threshold_pos=threshold, threshold_neg=threshold)  # 可调整此处的窗口大小和阈值
+    BuildGraph(dataset, 'test', window_size=window_size, threshold_pos=threshold, threshold_neg=threshold)
 
-    train_pos_features, train_pos_adj = PrepareGraph('data/'+dataset+'/graph', 'train', positive=True)
-    train_neg_features, train_neg_adj = PrepareGraph('data/'+dataset+'/graph', 'train', positive=False)
+    train_pos_features, train_pos_adj = PrepareGraph(f"data/{dataset}/graph_{window_size}_{threshold}", 'train', positive=True)
+    train_neg_features, train_neg_adj = PrepareGraph(f"data/{dataset}/graph_{window_size}_{threshold}", 'train', positive=False)
     train_graphs_20ng = (train_pos_features, train_pos_adj, train_neg_features, train_neg_adj)
-    torch.save(train_graphs_20ng, 'data/'+dataset+'/graph/train_graphs.pt')
-    test_pos_features, test_pos_adj = PrepareGraph('data/'+dataset+'/graph', 'test', positive=True)
-    test_neg_features, test_neg_adj = PrepareGraph('data/'+dataset+'/graph', 'test', positive=False)
+    torch.save(train_graphs_20ng, f"data/{dataset}/graph_{window_size}_{threshold}/train_graphs.pt")
+    test_pos_features, test_pos_adj = PrepareGraph(f"data/{dataset}/graph_{window_size}_{threshold}", 'test', positive=True)
+    test_neg_features, test_neg_adj = PrepareGraph(f"data/{dataset}/graph_{window_size}_{threshold}", 'test', positive=False)
     test_graphs_20ng = (test_pos_features, test_pos_adj, test_neg_features, test_neg_adj)
-    torch.save(test_graphs_20ng, 'data/'+dataset+'/graph/test_graphs.pt')
+    torch.save(test_graphs_20ng, f"data/{dataset}/graph_{window_size}_{threshold}/test_graphs.pt")
 
     # BuildGraph("imdb", 'train')
     # BuildGraph("imdb", 'test')
@@ -218,9 +218,6 @@ def main():
 
     # BuildGraph("nips", 'train')
     # BuildGraph("nips", 'test')
-
-    # BuildGraph("ag_news", 'train')
-    # BuildGraph("ag_news", 'test')
 
 
 if __name__ == '__main__':

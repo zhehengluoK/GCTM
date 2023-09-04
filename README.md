@@ -31,13 +31,12 @@ more in requirements.txt
 
 
 ## How to Run
-1. Download and put the dataset in the ```data``` folder: https://drive.google.com/file/d/1JeeUCzBRQqJUvdWGDN7aMRvIoBAIbZIc/view?usp=sharing
+1. Download and put the dataset in the ```data``` folder: https://www.dropbox.com/scl/fi/mskgptr4zuk8igqdr3ieb/data.zip?rlkey=rt8ybdev3bkrg87wbjwd3yczu&dl=0
 2. process nips dataset: ```python preprocess_data.py data/nips/train.jsonlist data/nips/processed/ --vocab-size 10000 --test data/nips/test.jsonlist``` \
   process 20ng ```python preprocess_data.py data/20ng/20ng_all/train.jsonlist data/20ng/processed/ --vocab-size 2000 --label group --test data/20ng/20ng_all/test.jsonlist``` \
-  process AG_news dataset：```python preprocess_data.py data/ag_news/train.jsonlist data/ag_news/processed/ --vocab-size 10000 --label label --test data/ag_news/test.jsonlist``` \
   process IMDB dataset：```python preprocess_data.py data/imdb/train.jsonlist data/imdb/processed/ --vocab-size 5000 --label sentiment --test data/imdb/test.jsonlist```
 3. to use word2vec download GoogleNews-vectors-negative300.bin.gz from https://code.google.com/archive/p/word2vec/ 
-4. run ```python build_graph_new.py``` and ```python get_bert_embeddings.py```
+4. run ```python build_graph_new.py DATASET WINDOW_SIZE THRESHOLD```(For example: ```python build_graph_new.py imdb 20 0.0```) and ```python get_bert_embeddings.py```
 5. change permissions if be denied: \
 ```chmod u+x scripts/train_models/run_20ng_gcn.sh``` \
 ```chmod u+x scripts/evaluate/run_20ng_npmi_gcn.sh```
